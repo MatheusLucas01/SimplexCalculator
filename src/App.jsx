@@ -21,7 +21,7 @@ const SimplexCalculator = () => {
   // Configuração da API
   const API_BASE_URL = 'https://simplexcalculator-backend.onrender.com/api';
 
-  // Verificar status do servidor Python
+
   const checkServerStatus = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/health`);
@@ -35,7 +35,7 @@ const SimplexCalculator = () => {
       }
     } catch (error) {
       setServerStatus('offline');
-      setError('Servidor Python não está respondendo. Certifique-se de que está rodando na porta 5000.');
+      setError('Servidor não está respondendo. Certifique-se de que está rodando na porta 5000.');
       return false;
     }
   };
@@ -91,7 +91,6 @@ const SimplexCalculator = () => {
     setModel({ ...model, constraints: newConstraints });
   };
 
-  // Resolver problema via API Python
   const solveWithPython = async () => {
     if (!model) {
       setError("Primeiro gere o modelo.");
@@ -117,7 +116,7 @@ const SimplexCalculator = () => {
         type: model.type
       };
 
-      // Fazer requisição para o backend Python
+
       const response = await fetch(`${API_BASE_URL}/solve`, {
         method: 'POST',
         headers: {
@@ -141,7 +140,7 @@ const SimplexCalculator = () => {
       }
 
     } catch (error) {
-      setError(`Erro ao comunicar com o servidor Python: ${error.message}`);
+      setError(`Erro ao comunicar com o servidor: ${error.message}`);
       setSolution(null);
       setServerStatus('offline');
     } finally {
@@ -203,7 +202,6 @@ const SimplexCalculator = () => {
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
             Calculadora Simplex Profissional
           </h1>
-          <p className="text-gray-600">Frontend React + Backend Python com Matplotlib</p>
 
           {/* Status do servidor */}
           <div className="mt-4 flex justify-center">
@@ -211,7 +209,7 @@ const SimplexCalculator = () => {
               serverStatus === 'offline' ? 'bg-red-100 text-red-800' :
                 'bg-yellow-100 text-yellow-800'
               }`}>
-              🐍 Backend Python: {
+              Backend: {
                 serverStatus === 'online' ? 'Online ✅' :
                   serverStatus === 'offline' ? 'Offline ❌' :
                     'Verificando...'
@@ -370,7 +368,7 @@ const SimplexCalculator = () => {
                   : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:shadow-xl transform hover:-translate-y-1'
                   }`}
               >
-                {loading ? '🔄 Resolvendo...' : '🚀 Resolver com Python'}
+                {loading ? '🔄 Resolvendo...' : 'Resolver'}
               </button>
             )}
 
@@ -417,7 +415,7 @@ const SimplexCalculator = () => {
                   </div>
                 </div>
 
-                {/* Gráfico Python */}
+
                 {solution.graph && (
                   <div className="bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-lg font-semibold mb-4 text-gray-800 flex items-center gap-2">
@@ -478,42 +476,6 @@ const SimplexCalculator = () => {
                   </div>
                 )}
               </>
-            )}
-
-            {/* Instruções de Instalação */}
-            {serverStatus === 'offline' && (
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-lg font-semibold mb-4 text-gray-800">
-                  🐍 Como Iniciar o Backend Python
-                </h3>
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-700">1. Instalar dependências:</h4>
-                    <code className="block bg-gray-100 p-2 rounded mt-1 font-mono text-xs">
-                      pip install flask flask-cors matplotlib numpy
-                    </code>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-700">2. Salvar código backend:</h4>
-                    <p className="text-gray-600">Salve o código Python como <code>app.py</code></p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-700">3. Executar servidor:</h4>
-                    <code className="block bg-gray-100 p-2 rounded mt-1 font-mono text-xs">
-                      python app.py
-                    </code>
-                  </div>
-
-                  <div className="bg-blue-50 border border-blue-200 p-3 rounded">
-                    <p className="text-blue-800 text-sm">
-                      💡 O servidor deve estar rodando em <strong>http://localhost:5000</strong>
-                      para que esta interface funcione.
-                    </p>
-                  </div>
-                </div>
-              </div>
             )}
           </div>
         </div>
