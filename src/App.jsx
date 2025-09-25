@@ -419,12 +419,12 @@ const SimplexCalculator = () => {
                 {solution.graph && (
                   <div className="bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-lg font-semibold mb-4 text-gray-800 flex items-center gap-2">
-                      🐍 Gráfico Profissional (Matplotlib)
+                      Gráfico Profissional
                     </h3>
                     <div className="border border-gray-200 rounded-lg p-2 bg-gray-50">
                       <img
                         src={`data:image/png;base64,${solution.graph}`}
-                        alt="Gráfico Simplex Profissional"
+                        alt="Gráfico Simplex"
                         className="w-full h-auto rounded"
                         style={{ maxHeight: '600px', objectFit: 'contain' }}
                       />
@@ -436,7 +436,7 @@ const SimplexCalculator = () => {
                 {solution.vertices && (
                   <div className="bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-lg font-semibold mb-4 text-purple-700">
-                      📊 Análise dos Vértices
+                      Análise dos Vértices
                     </h3>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
