@@ -419,7 +419,7 @@ const SimplexCalculator = () => {
                 {solution.graph && (
                   <div className="bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-lg font-semibold mb-4 text-gray-800 flex items-center gap-2">
-                      Gráfico Profissional
+                      Gráfico
                     </h3>
                     <div className="border border-gray-200 rounded-lg p-2 bg-gray-50">
                       <img
