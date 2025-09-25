@@ -431,15 +431,6 @@ const SimplexCalculator = () => {
                         style={{ maxHeight: '600px', objectFit: 'contain' }}
                       />
                     </div>
-                    <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-purple-800 mb-2">🎯 Qualidade Profissional</h4>
-                      <ul className="text-sm text-purple-700 space-y-1">
-                        <li>✓ <strong>Resolução HD</strong> - 300 DPI para impressão</li>
-                        <li>✓ <strong>Tipografia matemática</strong> - Símbolos e fórmulas precisas</li>
-                        <li>✓ <strong>Cores acadêmicas</strong> - Padrão científico</li>
-                        <li>✓ <strong>Layout profissional</strong> - Ideal para relatórios</li>
-                      </ul>
-                    </div>
                   </div>
                 )}
 
