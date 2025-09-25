@@ -210,7 +210,7 @@ const SimplexCalculator = () => {
                 'bg-yellow-100 text-yellow-800'
               }`}>
               Backend: {
-                serverStatus === 'online' ? 'Online ✅' :
+                serverStatus === 'online' ? 'Online' :
                   serverStatus === 'offline' ? 'Offline ❌' :
                     'Verificando...'
               }
@@ -368,7 +368,7 @@ const SimplexCalculator = () => {
                   : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:shadow-xl transform hover:-translate-y-1'
                   }`}
               >
-                {loading ? '🔄 Resolvendo...' : 'Resolver'}
+                {loading ? 'Resolvendo...' : 'Resolver'}
               </button>
             )}
 
